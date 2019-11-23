@@ -54,8 +54,9 @@ function wishpoints(enablefetch){
           let points = "";
           if(lopoints.length!=0){
             points = lopoints[0].children[1].innerText.trim();
+            var tag = points.match(/^[0-9]{3,}/) ? "big" : "small";
             item.firstElementChild.insertAdjacentHTML(
-              "beforeend", " <small><span class='a-color-price'>" + points + "</span></small>"
+              "beforeend", " <" + tag + "><span class='a-color-price'>" + points + "</span></" + tag + ">"
             );
           }
           //debug
@@ -76,8 +77,9 @@ function wishpoints(enablefetch){
           var points = lopoints[0].children[1].innerText.trim();
           //debug
           // console.log(kindlepoints);
+          var tag = points.match(/^[0-9]{3,}/) ? "big" : "small";
           item.firstElementChild.insertAdjacentHTML(
-            "beforeend", " <small><span class='a-color-price'>" + points + "</span></small>"
+            "beforeend", " <" + tag + "><span class='a-color-price'>" + points + "</span></" + tag + ">"
           );
         }
       }).fail(function(xhr,status,error){
